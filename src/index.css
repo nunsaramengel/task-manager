@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: black;
 }
 
 code {
@@ -12,6 +13,17 @@ code {
     monospace;
 }
 
-.pfeffer{
-  list-style: none;
+h1{
+  color: lightblue;
+  text-align: center;
+}
+
+.paragraph{
+  margin: 25px;
+  color: lightskyblue;
+  text-align: justify;
+}
+
+i{
+  color: lightseagreen;
 }
