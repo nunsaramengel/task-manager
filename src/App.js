@@ -1,15 +1,51 @@
-import Header from './Header'
-function App() {
+import { useState } from 'react'
+import Header from './components/Header'
+import Tasks from './components/Tasks'
 
-  return (
-    
-    <div className="App">
-     <h1>
-     <Header />
-     </h1>
-     <p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. <i>Dignissimos, quaerat ratione doloremque et tempora debitis</i> qui esse excepturi quis consequuntur repellendus consectetur placeat alias omnis. Ipsa velit nesciunt recusandae vero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, hic iusto. Alias repellendus ducimus impedit labore omnis, placeat quisquam laboriosam quis adipisci architecto. Labore, magnam a. Veniam autem voluptates placeat? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique, corrupti quaerat rerum tempore illo sequi iure nihil amet et. Recusandae dolorum reprehenderit incidunt maiores optio esse cum, fugiat nam voluptatibus? </p>
-    </div>
-  );
+
+const App = () => {
+  const [tasks, setTasks] = useState(
+    [
+
+        {
+            id: 1,
+            text: 'Doctors Appointment',
+            day: "Feb 5th at 2:30pm",
+            reminder: true,
+        },
+        {
+            id: 2,
+            text: 'Meeting at School',
+            day: "Feb 6th at 1:30pm",
+            reminder: true,
+        },
+        {
+            id: 3,
+            text: 'Grocery Shopping',
+            day: "Feb 7th at 5:30pm",
+            reminder: false,
+        },
+        {
+            id: 4,
+            text: 'Get Birthday Present',
+            day: "Feb 8th at 8:00am",
+            reminder: false,
+        }
+    ]
+)
+
+// Delete Task
+const deleteTask = (id) => {
+  setTasks(tasks.filter((task) => task.id !== id))
 }
+
+return (
+  <div className="container">
+    <Header  />
+    {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : 'No tasks to show'}
+  </div>
+);
+}
+
 
 export default App;
